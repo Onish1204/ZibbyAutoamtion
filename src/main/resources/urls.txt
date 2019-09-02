@@ -1,0 +1,7 @@
+qa_region= https://qa.zibby.com/
+
+
+CDE TRUE RETAILER 
+USername: cdetstore1245
+PW:  test
+Retailer Name : automationCDET
