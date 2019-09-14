@@ -22,10 +22,7 @@ public class CustomerLeasedetailsPage extends AbstractIolsPage {
 	private By orderNumberLabel = By.xpath("//div[contains(text(),'Order number')]");
 	private By paymentsTab = By.xpath("//a[contains(text(),'Payments')]");
 
-
-
-
-	private By logo = By.xpath("//img[@class='logo-main']");
+	private By logo = By.xpath("//a[@class='zby-logo']//img");
 
 	public void verifyPage() throws InterruptedException {
 		waitForPageLoad();

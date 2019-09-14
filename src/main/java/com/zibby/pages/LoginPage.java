@@ -79,6 +79,9 @@ public class LoginPage extends AbstractIolsPage {
 		// driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='/ng/customer/login.html#ext-login/select']")));
 		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='/ng/retailer/login.html#ext-login/select']")));
 		
+		if (isElementPresent(confirmCookie)) {
+			waitForElement(confirmCookie).click();
+		} 
 		waitForElement(customerLogin).click();
 
 		waitForElement(mobilePhoneNumber).sendKeys(mobilePhoneNum);
@@ -89,7 +92,7 @@ public class LoginPage extends AbstractIolsPage {
 
 		waitForElement(sixDigitCode).sendKeys("123456");
 
-		waitForElement(last4DigitOfSSN).sendKeys(BasicInfoPage.ssn.substring(BasicInfoPage.ssn.length()-5));
+		waitForElement(last4DigitOfSSN).sendKeys(BasicInfoPage.ssn.substring(BasicInfoPage.ssn.length()-4));
 
 		waitForElement(continueBtn).click();
 

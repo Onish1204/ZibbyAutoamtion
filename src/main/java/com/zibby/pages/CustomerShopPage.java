@@ -16,7 +16,7 @@ public class CustomerShopPage extends AbstractIolsPage {
 	private By whereToUseZibbyLabel = By.xpath("//div[@class='zby-shop-header']");
 	private By settingsTab = By.xpath("//a[contains(text(),'Settings')]");
 
-	private By logo = By.xpath("//img[@class='logo-main']");
+	private By logo = By.xpath("//a[@class='zby-logo']//img");
 
 	public void verifyPage() throws InterruptedException {
 		waitForPageLoad();

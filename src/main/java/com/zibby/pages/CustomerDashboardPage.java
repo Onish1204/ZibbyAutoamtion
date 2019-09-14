@@ -56,10 +56,10 @@ public class CustomerDashboardPage extends AbstractIolsPage {
 
 	private By preApprovalAmt = By.xpath("//div[@class='top-details-text-large']");
 
-
 	private By logo = By.xpath("//div[@class='logo-zibby-full-white']");
 
 	public void verifyPage() throws InterruptedException {
+		Thread.sleep(4);
 		waitForPageLoad();
 		Thread.sleep(2);
     	Assert.assertNotNull(waitForElement(webcomebackLabel));

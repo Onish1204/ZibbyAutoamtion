@@ -13,11 +13,9 @@ public class PreapprovalPage extends AbstractIolsPage{
 	private static final Logger LOG = LogManager.getLogger(PreapprovalPage.class);
 	WebDriver driver = WebDriverUtil.driver();
 	static String preApprovalAmount;
-
 	private By buildTheirCart = By.xpath("//button[@button-text='Build their cart']");
 	private By backToDashboard = By.xpath("//button[@class='button link']");
 	private By preApprovalAmt = By.xpath("//strong[@class='ng-binding']");
-
 	private By logo = By.xpath("//img[@class='logo-main']");
 
 	@Override

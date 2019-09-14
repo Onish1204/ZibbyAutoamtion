@@ -29,7 +29,7 @@ public abstract class AbstractIolsPage extends AbstractPage {
     
     @Override
     public void waitForPageLoad() {
-        JSUtil.waitForStableDOM(4000);
+        JSUtil.waitForStableDOM(6000);
         super.waitForPageLoad();
         JSUtil.waitForStableDOM(1500);
     }

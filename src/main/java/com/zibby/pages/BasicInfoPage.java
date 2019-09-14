@@ -126,6 +126,7 @@ public class BasicInfoPage extends AbstractIolsPage {
 	}
 
 	public void logoutRetailUser(){
+		
 		waitForElement(retailerUserNameBtn).click();
 		waitForElement(logoutBtn).click();
 		PageUtil.waitForPagetoLoad(10);

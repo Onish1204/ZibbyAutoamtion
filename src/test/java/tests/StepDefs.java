@@ -48,8 +48,6 @@ public class StepDefs {
 	public CustomerPaymentsPage customerPaymentsPage;
 	public CustomerShopPage customerShopPage;
 	public CustomerSettingsPage customerSettingsPage;
-	
-	private Scenario scenario;
 
 	WebDriver driver = WebDriverUtil.driver();
 	private static final Logger LOG = LogManager.getLogger(StepDefs.class);
@@ -144,8 +142,9 @@ public class StepDefs {
 		incomePage.waitForPageLoad();
 	}
 
-	@Then("^Enters Salary \"([^\"]*)\" for the term \"([^\"]*)\"$")
-	public void enters_Salary_for_the_term(String salary, String payTerm) {
+	@Then("^Enters Salary \"([^\"]*)\" for the term  \"([^\"]*)\"$")
+	public void enters_Salary_for_the_term(String salary, String payTerm) throws Throwable {
+		incomePage = AbstractPage.install(IncomePage.class);
 		incomePage.enterIncome(salary);
 	}
 
@@ -313,6 +312,7 @@ public class StepDefs {
 	 */
 	@And("^user login into customer portal$")
 	public void userLoginIntoCustomerPortal() throws InterruptedException {
+		WebDriverNavigation.navigateToURL(Environment.getBaseUrl());
 		loginPage = AbstractPage.install(LoginPage.class);
 		loginPage.waitForPageLoad();
 		loginPage.performCustomerLogin(OTPPage.mobileNo);
@@ -359,6 +359,7 @@ public class StepDefs {
 
 	@And("^user navigates to settings page$")
 	public void userNavigatesToSettingsPage() throws InterruptedException {
+		customerShopPage = AbstractPage.install(CustomerShopPage.class);
 		customerShopPage.navigateSettings();
 	}
 
@@ -391,14 +392,21 @@ public class StepDefs {
 
 	@And("^retail user logout$")
 	public void retailUserLogout() {
-		basicInfoPage.logoutRetailUser();
+		try {
+			Thread.sleep(2000);
+			basicInfoPage = AbstractPage.install(BasicInfoPage.class);
+
+			basicInfoPage.logoutRetailUser();
+		} catch (InterruptedException e) {
+			LOG.error("Unable to Click on the logout button");
+		}
 	}
 
 	@And("^user validates preapproval amount$")
 	public void userValidatesThePreapprovalAmount() {
-		customerDashboardPage = AbstractPage.install(CustomerDashboardPage.class);
 		PageUtil.waitForPagetoLoad(10);
-		customerDashboardPage.waitForPageLoad();		
+		customerDashboardPage = AbstractPage.install(CustomerDashboardPage.class);
+		customerDashboardPage.waitForPageLoad();
 		customerDashboardPage.validatePreApprovalAmount();
 	}
 

@@ -19,7 +19,7 @@ public class CustomerPaymentsPage extends AbstractIolsPage {
 	private By nextPaymentLabel = By.xpath("//div[contains(text(),'Next payment')]");
 	private By shopTab = By.xpath("//a[contains(text(),'Shop')]");
 
-	private By logo = By.xpath("//img[@class='logo-main']");
+	private By logo = By.xpath("//a[@class='zby-logo']//img");
 
 	public void verifyPage() throws InterruptedException {
 		waitForPageLoad();

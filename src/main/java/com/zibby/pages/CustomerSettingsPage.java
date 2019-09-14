@@ -27,7 +27,7 @@ public class CustomerSettingsPage extends AbstractIolsPage {
 
 	private By signOutLink = By.xpath("//a[contains(text(),'Sign out')]");
 
-	private By logo = By.xpath("//img[@class='logo-main']");
+	private By logo = By.xpath("//a[@class='zby-logo']//img");
 
 	public void verifyPage() throws InterruptedException {
 		waitForPageLoad();
